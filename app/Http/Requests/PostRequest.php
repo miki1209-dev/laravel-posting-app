@@ -22,8 +22,26 @@ class PostRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'title' => 'required',
-			'content' => 'required'
+			'title' => 'required|max:40',
+			'content' => 'required|max:200'
+		];
+	}
+
+	public function message(): array
+	{
+		return [
+			'title.required' => ':attributeは必須です。',
+			'title.max' => ':attributeは40文字以内で入力してください。',
+			'content.required' => ':attributeは必須です',
+			'content.max' => ':attributeは200文字以内で入力してください。'
+		];
+	}
+
+	public function attributes(): array
+	{
+		return [
+			'title' => 'タイトル',
+			'content' => '内容'
 		];
 	}
 }

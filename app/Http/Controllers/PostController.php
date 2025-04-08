@@ -14,10 +14,8 @@ class PostController extends Controller
 	{
 		$posts = Auth::user()->posts()->orderBy('updated_at', 'asc')->get();
 		// dump($posts);
-		$username = Auth::user()->name;
-		// dump($username);
 		// $posts = Post::orderBy('created_at', 'desc')->get();
-		return view('posts.index', compact('posts', 'username'));
+		return view('posts.index', compact('posts'));
 	}
 
 	// 投稿詳細ページ

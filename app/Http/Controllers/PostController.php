@@ -12,11 +12,11 @@ class PostController extends Controller
 	// 投稿一覧ページ
 	public function index()
 	{
-		// $posts = Auth::user()->posts()->orderBy('updated_at', 'asc')->get();
+		$posts = Auth::user()->posts()->orderBy('updated_at', 'asc')->get();
 		// dump($posts);
 		$username = Auth::user()->name;
 		// dump($username);
-		$posts = Post::orderBy('created_at', 'desc')->get();
+		// $posts = Post::orderBy('created_at', 'desc')->get();
 		return view('posts.index', compact('posts', 'username'));
 	}
 
